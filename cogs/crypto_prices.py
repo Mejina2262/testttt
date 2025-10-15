@@ -11,31 +11,31 @@ class CryptoView(discord.ui.View):
     @discord.ui.select(
         placeholder="暗号通貨を選択してください",
         options=[
-            discord.SelectOption(label="Bitcoin (BTC)", value="bitcoin", emoji="₿"),
-            discord.SelectOption(label="Ethereum (ETH)", value="ethereum", emoji="Ξ"),
-            discord.SelectOption(label="Ripple (XRP)", value="ripple", emoji="✕"),
-            discord.SelectOption(label="Cardano (ADA)", value="cardano", emoji="₳"),
-            discord.SelectOption(label="Solana (SOL)", value="solana", emoji="◎"),
-            discord.SelectOption(label="Polkadot (DOT)", value="polkadot", emoji="●"),
-            discord.SelectOption(label="Dogecoin (DOGE)", value="dogecoin", emoji="Ð"),
-            discord.SelectOption(label="Avalanche (AVAX)", value="avalanche", emoji="🔺"),
+            discord.SelectOption(label="Bitcoin (BTC)", value="bitcoin", emoji="🪙"),
+            discord.SelectOption(label="Ethereum (ETH)", value="ethereum", emoji="💎"),
+            discord.SelectOption(label="Ripple (XRP)", value="ripple", emoji="💧"),
+            discord.SelectOption(label="Cardano (ADA)", value="cardano", emoji="🎴"),
+            discord.SelectOption(label="Solana (SOL)", value="solana", emoji="☀️"),
+            discord.SelectOption(label="Polkadot (DOT)", value="polkadot", emoji="🔴"),
+            discord.SelectOption(label="Dogecoin (DOGE)", value="dogecoin", emoji="🐕"),
+            discord.SelectOption(label="Avalanche (AVAX)", value="avalanche-2", emoji="🔺"),
             discord.SelectOption(label="Chainlink (LINK)", value="chainlink", emoji="🔗"),
-            discord.SelectOption(label="Polygon (MATIC)", value="matic-network", emoji="⬡"),
-            discord.SelectOption(label="Litecoin (LTC)", value="litecoin", emoji="Ł"),
+            discord.SelectOption(label="Polygon (MATIC)", value="matic-network", emoji="🟣"),
+            discord.SelectOption(label="Litecoin (LTC)", value="litecoin", emoji="⚡"),
             discord.SelectOption(label="Uniswap (UNI)", value="uniswap", emoji="🦄"),
             discord.SelectOption(label="Binance Coin (BNB)", value="binancecoin", emoji="💰"),
-            discord.SelectOption(label="Tron (TRX)", value="tron", emoji="⚡"),
-            discord.SelectOption(label="Stellar (XLM)", value="stellar", emoji="*"),
-            discord.SelectOption(label="Monero (XMR)", value="monero", emoji="ɱ"),
-            discord.SelectOption(label="Cosmos (ATOM)", value="cosmos", emoji="⚛"),
-            discord.SelectOption(label="Algorand (ALGO)", value="algorand", emoji="▲"),
-            discord.SelectOption(label="VeChain (VET)", value="vechain", emoji="V"),
-            discord.SelectOption(label="Filecoin (FIL)", value="filecoin", emoji="⨎"),
-            discord.SelectOption(label="Tezos (XTZ)", value="tezos", emoji="ꜩ"),
-            discord.SelectOption(label="Shiba Inu (SHIB)", value="shiba-inu", emoji="🐕"),
-            discord.SelectOption(label="Bitcoin Cash (BCH)", value="bitcoin-cash", emoji="₿"),
-            discord.SelectOption(label="Aptos (APT)", value="aptos", emoji="🅰"),
-            discord.SelectOption(label="Near Protocol (NEAR)", value="near", emoji="Ⓝ"),
+            discord.SelectOption(label="Tron (TRX)", value="tron", emoji="⚙️"),
+            discord.SelectOption(label="Stellar (XLM)", value="stellar", emoji="⭐"),
+            discord.SelectOption(label="Monero (XMR)", value="monero", emoji="🔒"),
+            discord.SelectOption(label="Cosmos (ATOM)", value="cosmos", emoji="🌌"),
+            discord.SelectOption(label="Algorand (ALGO)", value="algorand", emoji="🔷"),
+            discord.SelectOption(label="VeChain (VET)", value="vechain", emoji="✅"),
+            discord.SelectOption(label="Filecoin (FIL)", value="filecoin", emoji="📁"),
+            discord.SelectOption(label="Tezos (XTZ)", value="tezos", emoji="🔵"),
+            discord.SelectOption(label="Shiba Inu (SHIB)", value="shiba-inu", emoji="🐶"),
+            discord.SelectOption(label="Bitcoin Cash (BCH)", value="bitcoin-cash", emoji="💵"),
+            discord.SelectOption(label="Aptos (APT)", value="aptos", emoji="🅰️"),
+            discord.SelectOption(label="Near Protocol (NEAR)", value="near", emoji="🔷"),
         ]
     )
     async def select_crypto(self, interaction: discord.Interaction, select: discord.ui.Select):
@@ -79,7 +79,7 @@ class CryptoView(discord.ui.View):
                                 inline=True
                             )
                             embed.add_field(
-                                name="₿ BTC",
+                                name="🪙 BTC",
                                 value=f"{btc_price:.8f}",
                                 inline=True
                             )
