@@ -24,31 +24,47 @@ class HealthCheckHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
 
+    def log_message(self, format, *args):
+        # アクセスログを抑制（オプション）
+        pass
+
 def run_web_server():
     # Renderが指定するポート（環境変数から取得）
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(('', port), HealthCheckHandler)
+    print(f"Webサーバーがポート {port} で起動しました")
     server.serve_forever()
 
 # --- 3. イベントとCogsの読み込み ---
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user} (ID: {client.user.id})')
+    print('------')
     
     # Cogsを読み込む
-    try:
-        await client.load_extension('cogs.boot')
-        print("Cogs 'boot' をロードしました。")
-    except Exception as e:
-        print(f"Cogsロードエラー: {e}")
-        
+    cogs_list = ['cogs.boot', 'cogs.crypto_prices']
+    
+    for cog in cogs_list:
+        try:
+            await client.load_extension(cog)
+            print(f"✅ Cog '{cog}' をロードしました。")
+        except Exception as e:
+            print(f"❌ Cog '{cog}' のロードエラー: {e}")
+    
+    print('------')
+    
     # スラッシュコマンドをDiscordに同期
     try:
         synced = await client.tree.sync()
-        print(f"同期されたコマンド数: {len(synced)}")
+        print(f"✅ 同期されたコマンド数: {len(synced)}")
+        for command in synced:
+            print(f"  - /{command.name}")
     except Exception as e:
-        print(f"コマンド同期エラー: {e}")
+        print(f"❌ コマンド同期エラー: {e}")
     
+    print('------')
+    print("BOTの準備が完了しました！")
+
 # --- 4. BOTの実行 ---
 if __name__ == "__main__":
     # RenderのWeb Serviceとして動かすため、Webサーバーを別スレッドで起動
